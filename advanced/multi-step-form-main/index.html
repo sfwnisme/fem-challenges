@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Multi-step form</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="box">
+        <div class="left">
+          <div class="steps">
+            <div class="step">
+              <div class="step-number">1</div>
+              <div class="step-info">
+                <p>STEP 1</p>
+                <h4>YOUR INFO</h4>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <div class="step-info">
+                <p>STEP 2</p>
+                <h4>SELECT PLAN</h4>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <div class="step-info">
+                <p>STEP 3</p>
+                <h4>ADD-ONS</h4>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-number">4</div>
+              <div class="step-info">
+                <p>STEP 4</p>
+                <h4>SUMMARY</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rights">
+          <div class="right one">
+            <div class="title">
+              <h1>Personal Info</h1>
+              <p>Please provide your name, email address, and phone number.</p>
+            </div>
+            <form action="">
+              <!-- username -->
+              <label for="name">Name</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="e.g. Stephen King"
+              />
+              <!-- email -->
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="e.g. stephenking@lorem.com"
+              />
+              <!-- phone number -->
+              <label for="phone-number">Phone Number</label>
+              <input
+                type="number"
+                name="phone-number"
+                id="phone-number"
+                placeholder="e.g. +1 234 567 890"
+              />
+            </form>
+          </div>
+          <div class="right two">
+            <div class="title">
+              <h1>Select your plan</h1>
+              <p>You have the option of monthly or yearly billing.</p>
+            </div>
+            <div class="plans-box">
+              <div class="plans">
+                <div class="plan active-plan">
+                  <img src="./assets/images/icon-arcade.svg" alt="" />
+                  <div class="info">
+                    <h4>Arcade</h4>
+                    <div class="price">
+                      <p>$9</p>
+                      <span>/mo</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="plan">
+                  <img src="./assets/images/icon-advanced.svg" alt="" />
+                  <div class="info">
+                    <h4>Advanced</h4>
+                    <div class="price">
+                      <p>$12</p>
+                      <span>/mo</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="plan">
+                  <img src="./assets/images/icon-pro.svg" alt="" />
+                  <div class="info">
+                    <h4>Pro</h4>
+                    <div class="price">
+                      <p>$15</p>
+                      <span>/mo</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="period">
+                <p>Monthly</p>
+                <input type="checkbox" name="" id="" />
+                <p>Yearly</p>
+              </div>
+            </div>
+          </div>
+          <div class="right three">
+            <div class="title">
+              <h1>Pick add-ons</h1>
+              <p>Add-ons help enhance your gaming experience.</p>
+            </div>
+            <div class="picks-box">
+              <div class="picks">
+                <div class="pick">
+                  <div class="text-box">
+                    <input type="checkbox" name="" id="" />
+                    <div class="text">
+                      <h4>Online service</h4>
+                      <p>Access to multiplayer games</p>
+                    </div>
+                  </div>
+                  <div class="price">
+                    <p>+$1</p>
+                    <span>/mo</span>
+                  </div>
+                </div>
+                <div class="pick">
+                  <div class="text-box">
+                    <input type="checkbox" name="" id="" />
+                    <div class="text">
+                      <h4>Large storage</h4>
+                      <p>Extra 1TB of cloud save</p>
+                    </div>
+                  </div>
+                  <div class="price">
+                    <p>+$2</p>
+                    <span>/mo</span>
+                  </div>
+                </div>
+                <div class="pick">
+                  <div class="text-box">
+                    <input type="checkbox" name="" id="" />
+                    <div class="text">
+                      <h4>Customizable profile</h4>
+                      <p>Custom theme on your profile</p>
+                    </div>
+                  </div>
+                  <div class="price">
+                    <p>+$2</p>
+                    <span>/mo</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right four">
+            <div class="title">
+              <h1>Personal Info</h1>
+              <p>Please provide your name, email address, and phone number.</p>
+            </div>
+            <form action="">
+              <!-- username -->
+              <label for="name">Name</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="e.g. Stephen King"
+              />
+              <!-- email -->
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="e.g. stephenking@lorem.com"
+              />
+              <!-- phone number -->
+              <label for="phone-number">Phone Number</label>
+              <input
+                type="number"
+                name="phone-number"
+                id="phone-number"
+                placeholder="e.g. +1 234 567 890"
+              />
+            </form>
+          </div>
+          <div class="btn">
+            <button class="next-btn">Next Step</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Step 5 end -->
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
