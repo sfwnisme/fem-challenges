@@ -58,6 +58,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: var(--family);
 }
 
 body {
@@ -79,7 +80,7 @@ main .box {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  min-height: 600px;
+  min-height: 640px;
 }
 
 /*============ [left] ============= */
@@ -93,7 +94,7 @@ main .box .left {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  padding-right: 70px;
+  width: 270px;
 }
 main .box .left .steps {
   display: grid;
@@ -107,7 +108,7 @@ main .box .left .steps .step {
   gap: 10px;
 }
 main .box .left .steps .step .step-number {
-  background-color: transparent;
+  /* background-color: transparent; */
   color: var(--White);
   width: 38px;
   height: 38px;
@@ -121,6 +122,11 @@ main .box .left .steps .step .step-number {
   -moz-border-radius: 100%;
   -ms-border-radius: 100%;
   -o-border-radius: 100%;
+}
+.step > div.active-step-number {
+  background-color: var(--Light-blue);
+  color: var(--Marine-blue) !important;
+  border: var(--Light-blue) !important;
 }
 main .box .left .steps .step .step-info {
 }
@@ -136,16 +142,27 @@ main .box .left .steps .step .step-info h4 {
 
 /*============ [right] ============= */
 .rights {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  /* flex-direction: column; */
   padding: 25px;
   justify-content: space-between;
   gap: 20px;
+  /* place-content: space-between; */
 }
-.right:not(.three) {
+/* .right:not(.four) {
+  display: none;
+} */
+.right {
   display: none;
 }
+.rights .active-step {
+  display: grid;
+}
 main .box .right {
+  place-self: center;
+  flex: 1;
+  width: 100%;
 }
 main .box .right .title {
   margin-bottom: 40px;
@@ -158,6 +175,7 @@ main .box .right .title h1 {
 main .box .right .title p {
   color: var(--Cool-gray);
   font-weight: var(--w400);
+  line-height: 1.5;
 }
 
 /*============ [STEP(1) => Personal information] ============= */
@@ -215,30 +233,51 @@ input::placeholder {
 /*============ [next button] ============= */
 main .box .btn {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+}
+main .box button {
+  cursor: pointer;
+  letter-spacing: 0.5px;
 }
 main .box button.next-btn {
   background-color: var(--Marine-blue);
   color: var(--White);
   padding: 10px 20px;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
   font-weight: var(--w500);
   position: relative;
   right: 0;
   border: none;
-  cursor: pointer;
+  transition: 200ms;
+  -webkit-transition: 200ms;
+  -moz-transition: 200ms;
+  -ms-transition: 200ms;
+  -o-transition: 200ms;
+  height: fit-content;
+  align-self: flex-end;
+}
+main .box button.next-btn:hover {
+  background-color: var(--Purplish-blue);
+}
+main .box button.back-btn {
+  background-color: transparent;
+  color: var(--Cool-gray);
+  border: transparent;
+  align-self: flex-end;
+  font-weight: var(--w700);
   transition: 200ms;
   -webkit-transition: 200ms;
   -moz-transition: 200ms;
   -ms-transition: 200ms;
   -o-transition: 200ms;
 }
-main .box button.next-btn:hover {
-  background-color: var(--Purplish-blue);
+main .box button.back-btn:hover {
+  color: var(--Purplish-blue);
 }
 
 /*============ [STEP(2) => Plans] ============= */
@@ -315,6 +354,7 @@ main .box button.next-btn:hover {
 .three .picks-box .picks .pick {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 15px;
   border: 2px solid var(--Light-gray);
   border-radius: 10px;
@@ -323,20 +363,42 @@ main .box button.next-btn:hover {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   cursor: pointer;
+  transition: 200ms;
+  -webkit-transition: 200ms;
+  -moz-transition: 200ms;
+  -ms-transition: 200ms;
+  -o-transition: 200ms;
+  transition-property: border, background-color;
 }
+.three .picks-box .picks .pick:hover {
+  border-color: var(--Purplish-blue);
+}
+
 .active-pick {
   border-color: var(--Purplish-blue) !important;
   background-color: var(--Magnolia);
+}
+
+.three .picks-box .picks .pick .text-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+}
+.three .picks-box .picks .pick .text-box::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: -5px;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(245, 36, 36, 0);
+  z-index: 12;
 }
 .three .picks-box .picks .pick input[type="checkbox"] {
   width: 20px;
   height: 20px;
   cursor: pointer;
-}
-.three .picks-box .picks .pick .text-box {
-  display: flex;
-  align-items: center;
-  gap: 15px;
 }
 .three .picks-box .picks .pick .text-box .text {
 }
@@ -346,10 +408,130 @@ main .box button.next-btn:hover {
 }
 .three .picks-box .picks .pick .text-box .text p {
   color: var(--Cool-gray);
+  font-size: 14px;
 }
 .three .picks-box .picks .pick .price {
+  color: var(--Purplish-blue);
+  display: flex;
+  font-size: 14px;
+  font-weight: var(--w500);
 }
 .three .picks-box .picks .pick .price p {
 }
 .three .picks-box .picks .pick .price span {
+}
+
+/*============ [STEP(4) => Finish up] ============= */
+
+.four {
+}
+.four .finish-box {
+}
+.four .finish-box .finish {
+  background-color: var(--Alabaster);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 20px;
+}
+.four .finish-box .finish .plan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--Light-gray);
+}
+.four .finish-box .finish .plan .text-box {
+}
+.four .finish-box .finish .plan .text-box h4 {
+  color: var(--Marine-blue);
+}
+.four .finish-box .finish .plan .text-box span {
+  color: var(--Cool-gray);
+  font-size: 14px;
+  text-decoration: underline;
+}
+.four .finish-box .finish .plan .total-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: var(--w500);
+}
+.four .finish-box .finish .plan .total-price p {
+  color: var(--Marine-blue);
+}
+.four .finish-box .finish .plan .total-price p:first-of-type {
+}
+.four .finish-box .finish .plan .total-price p:last-of-type {
+}
+.four .finish-box .finish .other-box {
+  display: grid;
+  gap: 20px;
+}
+.four .finish-box .finish .other-box .other-one,
+.four .finish-box .finish .other-box .other-two {
+  display: flex;
+  justify-content: space-between;
+}
+.four .finish-box .finish .other-box .other-one > p,
+.four .finish-box .finish .other-box .other-two > p {
+  color: var(--Cool-gray);
+}
+.four .finish-box .finish .other-box .other-one .price-total,
+.four .finish-box .finish .other-box .other-two .price-total {
+  color: var(--Marine-blue);
+  display: flex;
+}
+.four .finish-box .finish .other-box .other-one .price-total p {
+}
+.four .finish-box .finish .other-box .other-one .price-total p:first-of-type {
+}
+.four .finish-box .finish .other-box .other-one .price-total p:last-of-type {
+}
+.four .finish-box .finish .other-box .other-two {
+}
+.four .finish-box .finish .other-box .other-two > p {
+}
+.four .finish-box .finish .other-box .other-two .price-total {
+}
+.four .finish-box .finish .other-box .other-two .price-total p {
+}
+.four .finish-box .finish .other-box .other-two .price-total p:first-of-type {
+}
+.four .finish-box .finish .other-box .other-two .price-total p:last-of-type {
+}
+.four .finish-box .total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  padding-inline: 20px;
+}
+.four .finish-box .total > p {
+  color: var(--Cool-gray);
+  font-size: 16px;
+}
+.four .finish-box .total .total-final {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.four .finish-box .total .total-final h2 {
+  color: var(--Purplish-blue);
+}
+.four .finish-box .total .total-final h2:first-of-type {
+}
+.four .finish-box .total .total-final h2:last-of-type {
+}
+
+/*============ [STEP(5) => Thank you!] ============= */
+
+.thank {
+}
+.thank .title {
+  text-align: center;
+  margin-bottom: 0 !important;
 }

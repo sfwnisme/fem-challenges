@@ -62,7 +62,7 @@
           </div>
         </div>
         <div class="rights">
-          <div class="right one">
+          <div class="right one" data-step="steps">
             <div class="title">
               <h1>Personal Info</h1>
               <p>Please provide your name, email address, and phone number.</p>
@@ -94,7 +94,7 @@
               />
             </form>
           </div>
-          <div class="right two">
+          <div class="right two" data-step="steps">
             <div class="title">
               <h1>Select your plan</h1>
               <p>You have the option of monthly or yearly billing.</p>
@@ -139,7 +139,7 @@
               </div>
             </div>
           </div>
-          <div class="right three">
+          <div class="right three" data-step="steps">
             <div class="title">
               <h1>Pick add-ons</h1>
               <p>Add-ons help enhance your gaming experience.</p>
@@ -188,39 +188,62 @@
               </div>
             </div>
           </div>
-          <div class="right four">
+          <div class="right four" data-step="steps">
             <div class="title">
-              <h1>Personal Info</h1>
-              <p>Please provide your name, email address, and phone number.</p>
+              <h1>Finishing up</h1>
+              <p>Double-check everything looks OK before confirming.</p>
             </div>
-            <form action="">
-              <!-- username -->
-              <label for="name">Name</label>
-              <input
-                type="text"
-                name="username"
-                id="username"
-                placeholder="e.g. Stephen King"
-              />
-              <!-- email -->
-              <label for="email">Email Address</label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="e.g. stephenking@lorem.com"
-              />
-              <!-- phone number -->
-              <label for="phone-number">Phone Number</label>
-              <input
-                type="number"
-                name="phone-number"
-                id="phone-number"
-                placeholder="e.g. +1 234 567 890"
-              />
-            </form>
+            <div class="finish-box">
+              <div class="finish">
+                <div class="plan">
+                  <div class="text-box">
+                    <h4>Arcade (Monthly)</h4>
+                    <span>Change</span>
+                  </div>
+                  <div class="total-price">
+                    <p>$9</p>
+                    <p>/mo</p>
+                  </div>
+                </div>
+                <div class="other-box">
+                  <div class="other-one">
+                    <p>Online service</p>
+                    <div class="price-total">
+                      <p>+$1</p>
+                      <p>/mo</p>
+                    </div>
+                  </div>
+                  <div class="other-two">
+                    <p>Larger storage</p>
+                    <div class="price-total">
+                      <p>+$2</p>
+                      <p>/mo</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="total">
+                <p>Total (per month)</p>
+                <div class="total-final">
+                  <h2>+$12</h2>
+                  <h2>/mo</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="right thank">
+            <div class="title">
+              <img src="./assets/images/icon-thank-you.svg" alt="" />
+              <h1>Thank you!</h1>
+              <p>
+                Thank you! Thanks for confirming your subscription! We hope you
+                have fun using our platform. If you ever need support, please
+                feel free to email us at support@loremgaming.com.
+              </p>
+            </div>
           </div>
           <div class="btn">
+            <button class="back-btn">Go Back</button>
             <button class="next-btn">Next Step</button>
           </div>
         </div>
