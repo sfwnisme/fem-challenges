@@ -325,7 +325,7 @@ main .box button.next-btn:hover {
   cursor: pointer;
 }
 .active-pick {
-  border-color: var(--Marine-blue) !important;
+  border-color: var(--Purplish-blue) !important;
   background-color: var(--Magnolia);
 }
 .three .picks-box .picks .pick input[type="checkbox"] {
