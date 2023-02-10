@@ -20,9 +20,9 @@ pickBox.forEach((pick) => {
   pick.addEventListener("click", (p) => {
     p.currentTarget.classList.toggle("active-pick");
     if (p.currentTarget.classList.contains("active-pick")) {
-      p.currentTarget.querySelector("input").setAttribute("checked", "");
+      p.currentTarget.querySelector("input").checked = true;
     } else {
-      p.currentTarget.querySelector("input").removeAttribute("checked");
+      p.currentTarget.querySelector("input").checked = false;
     }
   });
 });
