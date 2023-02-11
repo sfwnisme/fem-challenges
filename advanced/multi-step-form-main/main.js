@@ -1,5 +1,10 @@
 "use strict";
 
+// =====||||[IMPORTING]
+import validation from "./extensions/validation.js";
+validation();
+// =====||||[IMPORTING]
+
 let stepSection = document.querySelectorAll(".right");
 let stepNumberContainer = document.querySelectorAll(".step");
 let stepNumber = document.querySelectorAll(".step-number");
@@ -10,13 +15,10 @@ let pickBox = document.querySelectorAll(".pick");
 let pickCheck = document.querySelectorAll(".pick input");
 let change = document.querySelector("button.change");
 
-console.log(backBtn);
-
 // ====| step section
 let currentStep = 1;
 let stepsArray = Array.from(stepSection);
 let stepsCount = Array.from(stepSection).length;
-console.log(stepsArray);
 
 // ====| Display Functions
 main();
@@ -114,7 +116,7 @@ function backStep() {
 }
 
 function stepNumberSwitch() {
-  console.log(this.querySelector('.step-number').textContent);
-  currentStep = this.querySelector('.step-number').textContent;
+  console.log(this.querySelector(".step-number").textContent);
+  currentStep = this.querySelector(".step-number").textContent;
   main();
 }
