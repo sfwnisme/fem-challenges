@@ -106,6 +106,7 @@ main .box .left .steps .step {
   /* justify-content: center; */
   align-items: center;
   gap: 10px;
+  cursor: pointer;
 }
 main .box .left .steps .step .step-number {
   /* background-color: transparent; */
@@ -449,10 +450,12 @@ main .box button.back-btn:hover {
 .four .finish-box .finish .plan .text-box h4 {
   color: var(--Marine-blue);
 }
-.four .finish-box .finish .plan .text-box span {
+.four .finish-box .finish .plan .text-box button.change {
   color: var(--Cool-gray);
   font-size: 14px;
   text-decoration: underline;
+  border: transparent;
+  background-color: transparent;
 }
 .four .finish-box .finish .plan .total-price {
   display: flex;

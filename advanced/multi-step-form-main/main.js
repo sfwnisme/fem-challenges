@@ -1,10 +1,14 @@
+"use strict";
+
 let stepSection = document.querySelectorAll(".right");
+let stepNumberContainer = document.querySelectorAll(".step");
 let stepNumber = document.querySelectorAll(".step-number");
 let nextBtn = document.querySelector(".next-btn");
 let backBtn = document.querySelector(".back-btn");
-let planBox = document.querySelectorAll(".plan");
+let planBox = document.querySelectorAll(".plans .plan");
 let pickBox = document.querySelectorAll(".pick");
 let pickCheck = document.querySelectorAll(".pick input");
+let change = document.querySelector("button.change");
 
 console.log(backBtn);
 
@@ -20,6 +24,11 @@ main();
 // ====| Next Event
 nextBtn.addEventListener("click", nextStep);
 backBtn.addEventListener("click", backStep);
+// change button
+change.addEventListener("click", changePlan);
+stepNumberContainer.forEach((step) => {
+  step.addEventListener("click", stepNumberSwitch);
+});
 
 // ====| plans
 planBox.forEach((plan) => {
@@ -44,9 +53,17 @@ pickBox.forEach((pick) => {
 });
 
 // ====|functions
+function changePlan() {
+  currentStep = 2;
+  main();
+}
+
 function main() {
+  // this function will remove the active classes from all elements
+  // then the next process will add the active class to the targeted element
   removeActivation();
-  if (currentStep > stepNumber.length - 1) {
+  // this condition will active the last step number [4] even we completed the [5] step
+  if (currentStep >= stepNumber.length) {
     stepNumber[stepNumber.length - 1].classList.add("active-step-number");
   } else {
     stepNumber[currentStep - 1].classList.add("active-step-number");
@@ -56,7 +73,6 @@ function main() {
   // confirm the excution of the back button function
   if (currentStep > 1 && currentStep <= stepsCount - 1) {
     backBtn.style.visibility = "visible";
-    console.log(currentStep);
   } else {
     backBtn.style.visibility = "hidden";
   }
@@ -97,4 +113,8 @@ function backStep() {
   }
 }
 
-document.addEventListener("load", () => {});
+function stepNumberSwitch() {
+  console.log(this.querySelector('.step-number').textContent);
+  currentStep = this.querySelector('.step-number').textContent;
+  main();
+}
