@@ -14,6 +14,15 @@ let planBox = document.querySelectorAll(".plans .plan");
 let pickBox = document.querySelectorAll(".pick");
 let pickCheck = document.querySelectorAll(".pick input");
 let change = document.querySelector("button.change");
+let inputs = document.querySelectorAll("form input");
+
+// Variables
+let nam = document.querySelector("[name=username]");
+console.log(nam);
+let email = document.querySelector("[name=email]");
+let phone = document.querySelector("[name=phone-number]");
+let conf = false;
+let arr = [];
 
 // ====| step section
 let currentStep = 1;
@@ -29,6 +38,8 @@ backBtn.addEventListener("click", backStep);
 // change button
 change.addEventListener("click", changePlan);
 stepNumberContainer.forEach((step) => {
+  // validator();
+
   step.addEventListener("click", stepNumberSwitch);
 });
 
@@ -93,15 +104,40 @@ function removeActivation() {
     nextBtn.style.display = "none";
   }
 }
+
 // ====| next button function
 function nextStep() {
-  if (currentStep <= stepsCount - 1) {
-    currentStep++;
-    main();
+  const value = (currentValue) => currentValue == "true";
+  arr = [];
+  inputs.forEach((input) => {
+    arr.push(input.getAttribute("data-validation"));
+  });
+  if (arr.every(value)) {
+    conf = true;
+    if (currentStep <= stepsCount - 1) {
+      currentStep++;
+      main();
+    } else {
+      // if the currentStep larger than stepsCount stop the nextStep function
+      return false;
+    }
   } else {
-    // if the currentStep larger than stepsCount stop the nextStep function
-    return false;
+    conf = false;
+    validator();
   }
+  // if (conf) {
+  //   // validator();
+  //   if (currentStep <= stepsCount - 1) {
+  //     currentStep++;
+  //     main();
+  //   } else {
+  //     // if the currentStep larger than stepsCount stop the nextStep function
+  //     return false;
+  //   }
+  // } else {
+  //   validator();
+  //   // return false;
+  // }
 }
 // ====| back button function
 function backStep() {
@@ -116,7 +152,91 @@ function backStep() {
 }
 
 function stepNumberSwitch() {
-  console.log(this.querySelector(".step-number").textContent);
-  currentStep = this.querySelector(".step-number").textContent;
-  main();
+  if (conf) {
+    console.log(this.querySelector(".step-number").textContent);
+    currentStep = this.querySelector(".step-number").textContent;
+    main();
+  }
 }
+
+/* =====[VALIDATOR]===== */
+
+console.log(nextBtn);
+
+// EVENTS
+
+// FUNCTIONS
+function validator() {
+  let namValue = nam.value.trim();
+  let emailValue = email.value.trim();
+  let phoneValue = phone.value.trim();
+  console.log(namValue);
+  // name
+  if (namValue === "") {
+    setError(nam, "your name is empty");
+  } else {
+    setSuccess(nam);
+  }
+
+  // email
+  if (emailValue === "") {
+    setError(email, "your email is empty");
+  } else if (!isValidEmail(emailValue)) {
+    setError(email, "email format error");
+  } else {
+    setSuccess(email);
+  }
+  if (phoneValue === "") {
+    setError(phone, "your number is empty");
+  } else {
+    setSuccess(phone);
+  }
+}
+
+/////////// confirmation
+// set error
+let setError = (element, message) => {
+  let inputWarning = element.previousElementSibling;
+  let warningElement = inputWarning.querySelector(".warning");
+  warningElement.textContent = message;
+  warningElement.classList.add("active-warning");
+  warningElement.classList.remove("disabled");
+  element.setAttribute("data-validation", "false");
+};
+
+// set success
+let setSuccess = (element) => {
+  // conf = true;
+  let inputWarning = element.parentElement;
+  let warningElement = inputWarning.querySelector(".warning");
+  warningElement.textContent = "";
+  warningElement.classList.add("disabled");
+  element.setAttribute("data-validation", "true");
+};
+
+// set email validation
+function isValidEmail(email) {
+  const re =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLocaleLowerCase());
+}
+
+/////// confirm conf = true or false;
+// const value = (currentValue) => currentValue == "true";
+
+// let arr2 = [];
+// nextBtn.addEventListener("click", (btn) => {
+//   arr2 = [];
+//   inputs.forEach((input) => {
+//     arr2.push(input.getAttribute("data-validation"));
+//   });
+//   if (arr2.every(value)) {
+//     conf = true;
+//     // arr2 = [];
+//   } else {
+//     conf = false;
+//     // arr2 = [];
+//   }
+//   console.log(arr2);
+//   console.log(arr2.every(value));
+// });

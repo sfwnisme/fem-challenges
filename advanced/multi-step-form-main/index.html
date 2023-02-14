@@ -69,30 +69,42 @@
             </div>
             <form action="">
               <!-- username -->
-              <label for="name">Name</label>
+              <label for="name"
+                >Name
+                <p class="warning disabled">add your name</p></label
+              >
               <input
                 type="text"
                 name="username"
                 id="username"
                 placeholder="e.g. Stephen King"
+                data-validation="false"
                 required
               />
               <!-- email -->
-              <label for="email">Email Address</label>
+              <label for="email"
+                >Email Address
+                <p class="warning disabled">add your email</p></label
+              >
               <input
                 type="email"
                 name="email"
                 id="email"
                 placeholder="e.g. stephenking@lorem.com"
+                data-validation="false"
                 required
               />
               <!-- phone number -->
-              <label for="phone-number">Phone Number</label>
+              <label for="phone-number"
+                >Phone Number
+                <p class="warning disabled">add your number</p></label
+              >
               <input
                 type="number"
                 name="phone-number"
                 id="phone-number"
                 placeholder="e.g. +1 234 567 890"
+                data-validation="false"
                 required
               />
             </form>

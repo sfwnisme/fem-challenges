@@ -186,10 +186,20 @@ main .box .right form {
 }
 main .box .right form label {
   color: var(--Marine-blue);
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 25px;
   margin-bottom: 5px;
   font-size: 14px;
+}
+main .box .right form label .warning.disabled {
+  visibility: hidden;
+}
+main .box .right form label .warning.active-warning {
+  color: var(--Strawberry-red);
+  font-size: 13px;
+  visibility: visible;
 }
 main .box .right form input {
   padding: 15px;

@@ -50,21 +50,5 @@
 */
 
 export default function validation() {
-  "use strict";
-  let nam = document.querySelector("[name=username]");
-  let email = document.querySelector("[name=email]");
-  let phone = document.querySelector("[name=phone-number]");
-  console.log();
-  namValidation(nam);
-  // emailValidation()
-  // phoneValidation()
-}
 
-function err(element, msg) {
-  msg = `your ${element} is not currect`;
-}
-function namValidation(e) {
-  let namValue = e.value;
-  if (namValue == "") {
-  }
 }
